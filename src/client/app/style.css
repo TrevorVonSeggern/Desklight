@@ -1,0 +1,36 @@
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}
+.tvo-main-content {
+  padding-bottom: 40px;
+  overflow-y: auto;
+}
+html,
+body {
+  height: 100%;
+  background-color: #f2f2f2;
+}
+div {
+  vertical-align: top;
+}
+md-card {
+  outline-color: #212121;
+  background-color: #ffffff;
+  border: 1px solid #c7c7c7;
+  padding: 5px;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  padding: 0 5px;
+}
+input[type="text"],
+textarea {
+  background-color: transparent;
+}
+#__bs_notify__ {
+  display: none !important;
+}
