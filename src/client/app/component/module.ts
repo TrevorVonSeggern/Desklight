@@ -8,11 +8,11 @@ import {InputSuiteModule} from './input/module';
 import {LabelModule} from './label/module';
 import {BaseItemModule} from './baseItem/module';
 
-var module:any = angular.module('components', [
+let module: any = angular.module('components', [
 	NavModule.name,
 	InputSuiteModule.name,
 	LabelModule.name,
 	BaseItemModule.name,
 ]);
 
-export var ComponentsModule = module;
+export let ComponentsModule = module;

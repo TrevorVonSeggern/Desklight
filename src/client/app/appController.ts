@@ -2,13 +2,13 @@
  * Created by trevor on 3/18/16.
  */
 class appController {
-	tabIcon:string              = 'src/client/images/Icon.ico';
-	static $inject:string[];
-	static clientLoaded:boolean = false;
-	clientLoaded                = appController.clientLoaded;
-	scope:any;
+	tabIcon: string = 'src/client/images/Icon.ico';
+	static $inject: string[];
+	static clientLoaded: boolean = false;
+	clientLoaded = appController.clientLoaded;
+	scope: any;
 
-	constructor($scope:any) {
+	constructor($scope: any) {
 		$scope.appvm = this;
 
 		$scope.onViewLoad = function () {
@@ -16,5 +16,5 @@ class appController {
 		};
 	}
 }
-appController.$inject    = ['$scope'];
+appController.$inject = ['$scope'];
 export var AppController = appController;

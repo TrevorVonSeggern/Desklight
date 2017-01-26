@@ -1,14 +1,10 @@
 import {definition} from '../../../../Definition';
-import {controller} from './controller';
 export function directive() {
 	return {
-		scope: {
-			'click': '&'
-		},
+		scope: {},
 		controller: definition.inputDeleteButton.controllerName,
-		controllerAs: "vm",
-		bindToController: true,
-		templateUrl: definition.inputDeleteButton.templateUrl
+		templateUrl: definition.inputDeleteButton.templateUrl,
+		replace: true,
 	};
 }
 

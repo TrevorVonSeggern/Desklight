@@ -13,13 +13,15 @@ import {PagesModule, loadRouter} from './pages/module';
 import {ComponentsModule} from './component/module';
 
 // api has to be of type :any to compile... registerController and $register are dynamic.
-let app: IModule = angular.module('app', [
-	'ui.router',
-	'googlechart',
-	'720kb.tooltips',
-	'infinite-scroll',
-	'ngMaterial',
-	'dtrw.bcrypt',
+export let app: IModule = angular.module('app', [
+	'ui.router', // angular ui router
+	'googlechart', // google charts
+	'720kb.tooltips', // small lib for tooltips
+	'infinite-scroll', // angular infinite scroll
+	'ngMaterial', // angular material
+	'dtrw.bcrypt', // angular bcrypt module
+	'ui.bootstrap', // ui bootstrap
+	'ui.bootstrap.datetimepicker', // angular datepicker
 	ComponentsModule.name,
 	PagesModule.name,
 ]);
@@ -73,5 +75,3 @@ app.controller('main-controller', [
 angular.module = function () {
 	return app;
 };
-
-export let App: any = app;

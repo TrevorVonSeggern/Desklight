@@ -3,17 +3,17 @@
  */
 
 export class BaseMultipleDirective {
-	static directiveName:string; // need to populate
-	       templateUrl:string; // need to populate
-	       controller; // need to populate
+	static directiveName: string; // need to populate
+	templateUrl: string; // need to populate
+	controller; // need to populate
 
-	scope = {
+	scope: any = {
 		mode: '=',
 		events: '@'
 	};
 
 	bindToController = true;
-	controllerAs     = 'vm';
+	controllerAs = 'vm';
 
 	constructor() {
 	}

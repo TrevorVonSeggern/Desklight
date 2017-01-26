@@ -15,6 +15,7 @@ export function generateGUID() {
 export abstract class BaseMultipleController {
 	static controllerName: string = 'Base_Item_Multiple_Controller';
 	static $inject: any[] = ['UserFactory', '$window'];
+	loading: boolean = true;
 
 	constructor(public userFactory,
 				public $window: IWindowService,
@@ -22,7 +23,8 @@ export abstract class BaseMultipleController {
 		this.itemId = '';
 	}
 
-	mode: string;
+	mode: string; // router, or substitute
+	baseName: string;
 
 	eventDetailFocused: boolean = false;
 	eventCreateFocused: boolean = false;
@@ -34,34 +36,37 @@ export abstract class BaseMultipleController {
 	listenerGUID: string = generateGUID();
 
 	loadMore() {
+		this.loading = true;
 		this.userFactory.httpServerCall(this.itemsUrl, 'GET', {
 			limit: this.PAGE_SIZE,
 			skip: this.items.length
 		}, (response) => {
+			this.loading = false;
 			let nItems = response.data;
 
 			for (let i: number = 0; i < nItems.length; ++i) {
 				this.items.push(nItems[i]);
 
 			}
+		}, (error) => {
+			console.log(error);
+			this.loading = false;
 		});
 	}
 
-	abstract navigateToItem(id: string);
-
-	selectItem(id: string) {
+	selectItem(id: string): any {
 		if (this.mode === 'router') {
-			return this.navigateToItem(id);
+			this.$window.location.assign('/#/' + this.baseName + '/' + id);
 		}
-		else if (this.mode == 'event') {
+		else if (this.mode == 'substitute') {
 			this.eventDetailFocused = true;
-			return this.itemId = id;
+			this.itemId = id;
 		}
 	}
 
 	create(route: string) {
-		if (this.mode === 'event')
-			return this.eventCreateFocused = true;
+		if (this.mode === 'substitute')
+			this.eventCreateFocused = true;
 		else if (this.mode === 'router') {
 			this.$window.location.href = route;
 		}

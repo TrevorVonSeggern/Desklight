@@ -1,3 +1,4 @@
+import {lightDefinition} from "./pages/light/lightDefinition";
 import {IComponent} from "./IComponent";
 /**
  * Created by trevor on 3/24/16.
@@ -25,6 +26,7 @@ export class DefinitionRouter {
 let umBaseUrl: string = 'pages/userManagement/administration/userManagement/';
 
 export class DefinitionConfiguration {
+	light: IComponent = new IComponent('light', 'pages/light/');
 
 	administration: IComponent = new IComponent('administration', 'pages/userManagement/administration/');
 
@@ -62,12 +64,12 @@ export class DefinitionConfiguration {
 	inputPhone: IComponent = new IComponent('phone', 'component/input/phone');
 	inputSlider: IComponent = new IComponent('slider', 'component/input/slider');
 	inputSwitch: IComponent = new IComponent('switch', 'component/input/switch');
+	inputDatetime: IComponent = new IComponent('datetime', 'component/input/datetime');
 	// labeling component
 	labelText: IComponent = new IComponent('label-text', 'component/label/text');
+	labelDatetime: IComponent = new IComponent('label-datetime', 'component/label/datetime');
 	// api component
 	nav: IComponent = new IComponent('nav', 'component/nav/');
-
-	light: IComponent = new IComponent('light', 'pages/light');
 
 	constructor() {
 	}

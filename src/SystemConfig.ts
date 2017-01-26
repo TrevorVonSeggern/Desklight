@@ -14,6 +14,8 @@ let config = {
 			'ngInfiniteScroll',
 			'bcrypt',
 			'ngTooltips',
+			'datetimepicker',
+			'bootstrapSelect',
 		],
 		'startApp': [
 			'src/client/app/app'
@@ -41,12 +43,18 @@ let config = {
 		bcrypt: 'bower_components/angular-bcrypt/dist/dtrw.bcrypt',
 		Node: 'bower_components/Node/Node',
 		crypto: 'bower_components/cryptojslib/components/core',
+
+		uiBootstrap: 'bower_components/bootstrap-ui-datetime-picker/dist/datetime-picker.min',
+		dateTimePicker: 'bower_components/angular-bootstrap/ui-bootstrap-tpls',
+		bootstrapSelect: 'bower_components/angular-bootstrap-select/angular-bootstrap-select',
 	},
 	meta: {
 		jquery: {exports: "$", global: 'angular', format: 'global'},
 		angular: {exports: 'angular', global: 'angular', deps: ['jquery'], format: 'global'},
 		ngCookie: {deps: ['angular']},
-		googlechart: {deps: ['angular']},
+		uiBootstrap: {deps: ['angular']},
+		dateTimePicker: {deps: ['angular', 'uiBootstrap']},
+		bootstrapSelect: {deps: ['angular']},
 		ngAnimate: {deps: ['angular']},
 		ngAria: {deps: ['angular']},
 		ngMaterial: {deps: ['angular']},

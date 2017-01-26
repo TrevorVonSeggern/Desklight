@@ -3,10 +3,9 @@ import {BasicItemService} from '../service';
 import {BaseItemController} from '../baseController';
 
 export abstract class BaseDetailItemController extends BaseItemController {
-	static controllerName: string = 'base-detail-controller';
 	static $inject: any[] = ['$scope', '$stateParams', BasicItemService.serviceName];
 
-	eventEditFocused: boolean = false;
+	eventEditFocused: boolean = false; // if true, skip details and go straight to edit.
 
 	constructor($scope: any,
 				$window,
@@ -17,7 +16,6 @@ export abstract class BaseDetailItemController extends BaseItemController {
 			return this.returnUrl;
 		});
 	}
-
 
 	itemLoadComplete() {
 		if (this.itemIsEmpty())

@@ -15,8 +15,10 @@ import 'googlechart';
 import 'ngTooltips';
 import 'ngInfiniteScroll';
 
+import 'uiBootstrap';
+import 'dateTimePicker';
+import 'bootstrapSelect';
+
 import './appConfig';
 
-
-// $('.view').attr('ng-view', '');
 angular.bootstrap(document, ['app']);
