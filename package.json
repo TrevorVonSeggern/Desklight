@@ -53,6 +53,7 @@
     "type": "git",
     "url": "https://github.com/TrevorVonSeggern/Desklight"
   },
+  "main": "main.js",
   "name": "Desklight",
   "description": "Website that controls my rbg lights around my desk.",
   "license": "MIT",
