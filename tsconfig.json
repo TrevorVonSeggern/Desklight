@@ -2,7 +2,7 @@
   "compilerOptions": {
 	"target": "es5",
 	"module": "commonjs",
-	"moduleResolution": "Classic",
+	"moduleResolution": "node",
 	"noImplicitAny": false,
 	"removeComments": true,
 	"preserveConstEnums": true,
