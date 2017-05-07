@@ -16,7 +16,7 @@
     "web-angularjs-user-factory": "^1.0.25",
     "web-chart": "^1.0.3",
     "web-input": "^1.0.12",
-    "web-server-database": "^2.0.37",
+    "web-server-database": "^2.0.45",
     "web-user-management": "^0.0.16"
   },
   "devDependencies": {

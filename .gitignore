@@ -16,3 +16,5 @@
 
 !/client/light/color-picker.min.js
 !/client/light/color-picker.js
+
+src/server/config/database\.ts

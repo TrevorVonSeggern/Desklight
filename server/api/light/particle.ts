@@ -2,7 +2,12 @@
 import logs from "web-server-database/server/logs";
 let Particle = require('particle-io');
 let request = require('request');
-import {config} from '../../config/database';
+// import {config} from '../../config/database';
+
+let config = {
+	particleUsername: process.env.PARTICLE_USERNAME,
+	particlePassword: process.env.PARTICLE_PASSWORD
+};
 
 function resetParticleBoard() {
 	io.turnOffAll();
@@ -22,19 +27,13 @@ let changeAll = function (r, g, b) {
 	logs('Not initialized yet...');
 };
 
-let redPin = 'A4';
-let greenPin = 'A5';
-let bluePin = 'A7';
-
 let redPower: number = 0;
 let greenPower: number = 0;
 let bluePower: number = 0;
 
-let board;
-
 let Particle_api = require('particle-api-js');
 let particle_api = new Particle_api();
-particle_api.login({username: config.light.particleUsername, password: config.light.particlePassword}).then((data) => {
+particle_api.login({username: config.particleUsername, password: config.particlePassword}).then((data) => {
 	logs('particle login success.');
 	let token = data.body.access_token;
 	let devicesPr = particle_api.listDevices({auth: token});
