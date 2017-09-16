@@ -1,28 +1,13 @@
 <h1>Desk light</h1>
-<div>
-	<tvo-button style="background-color:red" label="'Red'" type="'button'" ng-click="vm.red()"></tvo-button>
-	<tvo-button style="background-color:green" label="'Green'" type="'button'" ng-click="vm.green()"></tvo-button>
-	<tvo-button style="background-color:blue; color:white" label="'Blue'" type="'button'"
-				ng-click="vm.blue()"></tvo-button>
-	<tvo-button colorpicker="rgb" type="button" ng-model="color" label="'More Color'"/>
-</div>
-<div>
-	<tvo-button label="'White'" type="'button'" ng-click="vm.on()"></tvo-button>
-	<tvo-button style="background-color:#000000; color:white" label="'Off'" type="'button'" ng-click="vm.off()"></tvo-button>
-</div>
-
-<!--<tvo-button label="'Reset Particle'" type="'button'" ng-click="vm.reset()"></tvo-button>-->
-<div>
-	<tvo-slider label="'R'" value="vm.r"></tvo-slider>
-	<tvo-slider label="'G'" value="vm.g"></tvo-slider>
-	<tvo-slider label="'B'" value="vm.b"></tvo-slider>
-</div>
-
-<div>
-	<span> R: {{vm.r}} </span>
-	<span> G: {{vm.g}} </span>
-	<span> B: {{vm.b}} </span>
-</div>
-<div style="background-color: rgb({{vm.r}}, {{vm.g}}, {{vm.b}});">
-	Color
-</div>
+<md-card style="box-shadow: 0 0 20px 0 rgb({{vm.r + ', ' + vm.g + ', ' + vm.b}}); border: 1px solid lightgray;">
+	<div>
+		<tvo-button style="background-color:red" label="'Red'" type="'button'" ng-click="vm.red()"></tvo-button>
+		<tvo-button style="background-color:green" label="'Green'" type="'button'" ng-click="vm.green()"></tvo-button>
+		<tvo-button style="background-color:blue; color:white" label="'Blue'" type="'button'"
+					ng-click="vm.blue()"></tvo-button>
+		<tvo-button label="'White'" type="'button'" ng-click="vm.on()"></tvo-button>
+		<tvo-button style="background-color:#000000; color:white" label="'Off'" type="'button'" ng-click="vm.off()"></tvo-button>
+		<tvo-button colorpicker="rgb" type="button" ng-model="vm.color" label="'More Color'"></tvo-button>
+		{{vm.r + ', ' + vm.g + ', ' + vm.b}}
+	</div>
+</md-card>

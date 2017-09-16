@@ -8,6 +8,8 @@ export class LightController {
 
 	name: string;
 
+	color: string;
+
 	r: number = 0;
 	g: number = 0;
 	b: number = 0;
@@ -16,30 +18,27 @@ export class LightController {
 		this.update();
 		this.name = "Light";
 		$scope.vm = this;
-		let selectColor = (input) => {
+		let selectColor = (input:string):void => {
 			if (!input || typeof(input) !== 'string')
 				return;
-			try {
-				input = input.replace('rgb(', '');
-				input = input.replace(')', '');
-				let parts = input.split(",");
-				$scope.vm.r = parseInt(parts[0]);
-				$scope.vm.g = parseInt(parts[1]);
-				$scope.vm.b = parseInt(parts[2]);
-				let params: string = '?r=' + $scope.vm.r + '&g=' + $scope.vm.g + '&b=' + $scope.vm.b;
-				ajaxFactory.httpServerCall('/api/light/set' + params, 'put', undefined, (data) => {
-					if (!data.error) {
-						$scope.vm.r = data.power.red;
-						$scope.vm.g = data.power.green;
-						$scope.vm.b = data.power.blue;
-					}
-				});
-			}
-			catch (ignored) {
-			}
-		}
+			input = input.replace('rgb(', '').replace(')', '');
+			let parts = input.split(",");
+			if (parts.length != 3)
+				return;
+			$scope.vm.r = parseInt(parts[0]);
+			$scope.vm.g = parseInt(parts[1]);
+			$scope.vm.b = parseInt(parts[2]);
+			let params: string = '?r=' + $scope.vm.r + '&g=' + $scope.vm.g + '&b=' + $scope.vm.b;
+			ajaxFactory.httpServerCall('/api/light/set' + params, 'put', undefined, (data) => {
+				if (!data.error) {
+					$scope.vm.r = data.power.red;
+					$scope.vm.g = data.power.green;
+					$scope.vm.b = data.power.blue;
+				}
+			});
+		};
 
-		$scope.$watch('color', _.debounce((value) => {
+		$scope.$watch('vm.color', _.debounce((value) => {
 			$scope.$apply(() => {
 				selectColor(value);
 			});
