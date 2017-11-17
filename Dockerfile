@@ -1,6 +1,15 @@
-FROM node:latest
+#!/bin/sh
+FROM resin/rpi-raspbian
 RUN apt-get update
-RUN apt-get install -y sqlite3 libsqlite3-dev build-essential libssl-dev
+
+ENV DB_DATASE_TYPE mysql
+ENV DB_HOST localhost
+ENV DB_USERNAME root
+ENV DB_PASSWORD mysuperpwd!
+ENV nodeversion 8.5.0
+
+RUN apt-get install manpages-dev javascript-common libjs-jquery libssl-doc file build-essential wget git
+RUN apt-get install nodejs
 
 ADD package.json package.json
 RUN npm install

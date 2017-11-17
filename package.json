@@ -7,7 +7,7 @@
     "jquery": "^3.2.1",
     "lodash": "^4.17.4",
     "mysql": "2.12.0",
-    "ng-colorwheel": "git+https://github.com/patlux/ng-colorwheel.git",
+    "tedious": "*",
     "particle-api-js": "^6.4.2",
     "particle-io": "^0.14.0",
     "process": "^0.11.6",
@@ -16,7 +16,7 @@
     "web-angularjs-user-factory": "^1.0.25",
     "web-chart": "^1.0.3",
     "web-input": "^1.0.12",
-    "web-server-database": "^2.0.45",
+    "web-server-database": "^2.0.49",
     "web-user-management": "^0.0.16"
   },
   "devDependencies": {
